@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+#    url: jdbc:mysql://192.168.0.105/sell?characterEncoding=utf-8&useSSL=false
+#    url: jdbc:mysql://192.168.43.10/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://10.180.152.255/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 10.180.152.255
+    post: 6379
+server:
+  context-path: /sell
+
+wechat:
+  mpAppId: wx93bbf4d13a39e447
+  mpAppSecret: db306d6905fa5f27a5cf095df774b446
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  mchId: 1490559512
+  mchKey: l330673934liuhuan330673934198878
+  keyPath: /Users/liuhuan/Desktop/var/cert/apiclient_cert.p12
+  notifyUrl: http://happymall.natapp1.cc/sell/pay/notify
+  templateId:
+    orderStatus: WB6hUK8jexdSYGP_GlUubzRuPR47fazwZR_gER2opiA
+
+projectUrl:
+  wechatMpAuthorize: http://happymall.natapp1.cc
+  wechatOpenAuthorize: http://happymall.natapp1.cc
+  sell: http://happymall.natapp1.cc
