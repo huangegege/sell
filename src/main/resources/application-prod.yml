@@ -1,8 +1,8 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
+    username: sell
+    password: sellpassword
     url: jdbc:mysql://47.95.196.241/sell?characterEncoding=utf-8&useSSL=false
   jackson:
     default-property-inclusion: non_null
@@ -20,11 +20,11 @@ wechat:
   mchId: 1490559512
   mchKey: l330673934liuhuan330673934198878
   keyPath: /var/cert/apiclient_cert.p12
-  notifyUrl: http://www.huanliu.org/sell/pay/notify
+  notifyUrl: http://sell.huanliu.org/sell/pay/notify
   templateId:
     orderStatus: WB6hUK8jexdSYGP_GlUubzRuPR47fazwZR_gER2opiA
 
 projectUrl:
-  wechatMpAuthorize: http://www.huanliu.org
-  wechatOpenAuthorize: http://www.huanliu.org
-  sell: http://www.huanliu.org
+  wechatMpAuthorize: http://sell.huanliu.org
+  wechatOpenAuthorize: http://sell.huanliu.org
+  sell: http://sell.huanliu.org
