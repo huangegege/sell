@@ -30,7 +30,7 @@ CREATE TABLE `order_detail` (
   `product_quantity` int(11) NOT NULL COMMENT '数量',
   `product_icon` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '小图',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime NOT NULL DEFAULT '1999-01-01 01:01:01' COMMENT '修改时间',
   PRIMARY KEY (`detail_id`),
   KEY `idx_order_id` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -38,7 +38,7 @@ CREATE TABLE `order_detail` (
 DROP TRIGGER IF EXISTS `update_order_detail_trigger`;
 DELIMITER //
 CREATE TRIGGER `update_order_detail_trigger` BEFORE UPDATE ON `order_detail`
-FOR EACH ROW SET `update_time` = CURRENT_TIMESTAMP
+FOR EACH ROW SET `update_time` = NOW()
 //
 DELIMITER ;
 
@@ -63,7 +63,7 @@ CREATE TABLE `order_master` (
   `order_status` tinyint(3) NOT NULL DEFAULT '0' COMMENT '订单状态, 默认为新下单',
   `pay_status` tinyint(3) NOT NULL DEFAULT '0' COMMENT '支付状态, 默认未支付',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime NOT NULL DEFAULT '1999-01-01 01:01:01' COMMENT '修改时间',
   PRIMARY KEY (`order_id`),
   KEY `idx_buyer_openid` (`buyer_openid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -71,7 +71,7 @@ CREATE TABLE `order_master` (
 DROP TRIGGER IF EXISTS `update_order_master_trigger`;
 DELIMITER //
 CREATE TRIGGER `update_order_master_trigger` BEFORE UPDATE ON `order_master`
-FOR EACH ROW SET `update_time` = CURRENT_TIMESTAMP
+FOR EACH ROW SET `update_time` = NOW()
 //
 DELIMITER ;
 
@@ -91,14 +91,14 @@ CREATE TABLE `product_category` (
   `category_name` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '类目名字',
   `category_type` int(11) NOT NULL COMMENT '类目编号',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime NOT NULL DEFAULT '1999-01-01 01:01:01' COMMENT '修改时间',
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 DROP TRIGGER IF EXISTS `update_product_category_trigger`;
 DELIMITER //
 CREATE TRIGGER `update_product_category_trigger` BEFORE UPDATE ON `product_category`
-FOR EACH ROW SET `update_time` = CURRENT_TIMESTAMP
+FOR EACH ROW SET `update_time` = NOW()
 //
 DELIMITER ;
 
@@ -123,14 +123,14 @@ CREATE TABLE `product_info` (
   `product_status` tinyint(3) DEFAULT '0' COMMENT '商品状态,0正常1下架',
   `category_type` int(11) NOT NULL COMMENT '类目编号',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime NOT NULL DEFAULT '1999-01-01 01:01:01' COMMENT '修改时间',
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 DROP TRIGGER IF EXISTS `update_product_info_trigger`;
 DELIMITER //
 CREATE TRIGGER `update_product_info_trigger` BEFORE UPDATE ON `product_info`
-FOR EACH ROW SET `update_time` = CURRENT_TIMESTAMP
+FOR EACH ROW SET `update_time` = NOW()
 //
 DELIMITER ;
 
@@ -151,14 +151,14 @@ CREATE TABLE `seller_info` (
   `password` varchar(32) COLLATE utf8mb4_bin NOT NULL,
   `openid` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '微信openid',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime NOT NULL DEFAULT '1999-01-01 01:01:01' COMMENT '修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='卖家信息表';
 
 DROP TRIGGER IF EXISTS `update_seller_info_trigger`;
 DELIMITER //
 CREATE TRIGGER `update_seller_info_trigger` BEFORE UPDATE ON `seller_info`
-FOR EACH ROW SET `update_time` = CURRENT_TIMESTAMP
+FOR EACH ROW SET `update_time` = NOW()
 //
 DELIMITER ;
 
