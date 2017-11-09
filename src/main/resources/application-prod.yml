@@ -26,5 +26,5 @@ wechat:
 
 projectUrl:
   wechatMpAuthorize: http://sell.huanliu.org
-  wechatOpenAuthorize: http://sell.huanliu.org
-  sell: http://sell.huanliu.org
+  wechatOpenAuthorize: http://selladmin.huanliu.org
+  sell: http://selladmin.huanliu.org
