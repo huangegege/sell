@@ -71,7 +71,7 @@ public class WechatController {
                              @RequestParam("state") String returnUrl) {
         WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();
         try {
-            wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code);
+            wxMpOAuth2AccessToken = wxOpenService.oauth2getAccessToken(code);
         } catch (WxErrorException e) {
             log.error("【微信网页授权】{}", e);
             throw new SellException(ResultEnum.WECHAT_MP_ERROR.getCode(), e.getError().getErrorMsg());
