@@ -7,7 +7,7 @@ spring:
   jackson:
     default-property-inclusion: non_null
   redis:
-    host: 47.95.196.241
+    host: 127.0.0.1
     post: 6379
 server:
   context-path: /sell
