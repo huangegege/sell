@@ -6,6 +6,7 @@ import com.huanliu.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public ProductCategory save(ProductCategory productCategory) {
+        productCategory.setUpdateTime(new Date());
         return repository.save(productCategory);
     }
 }

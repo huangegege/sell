@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,6 +61,7 @@ public class ProductServiceImpl implements ProductService {
             }
             Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
             productInfo.setProductStock(result);
+            productInfo.setUpdateTime(new Date());
             repository.save(productInfo);
         }
     }
@@ -79,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
             }
 
             productInfo.setProductStock(result);
-
+            productInfo.setUpdateTime(new Date());
             repository.save(productInfo);
         }
     }
@@ -96,6 +98,7 @@ public class ProductServiceImpl implements ProductService {
 
         //更新
         productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        productInfo.setUpdateTime(new Date());
         return repository.save(productInfo);
     }
 
@@ -111,6 +114,7 @@ public class ProductServiceImpl implements ProductService {
 
         //更新
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        productInfo.setUpdateTime(new Date());
         return repository.save(productInfo);
     }
 }

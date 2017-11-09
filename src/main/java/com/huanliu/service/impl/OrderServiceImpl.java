@@ -26,6 +26,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -93,6 +94,7 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
+        orderMaster.setUpdateTime(new Date());
         orderMasterRepository.save(orderMaster);
 
         //4. 扣库存
@@ -149,6 +151,7 @@ public class OrderServiceImpl implements OrderService {
         //修改订单状态
         orderDTO.setOrderStatus(OrderStatusEnum.CANCEL.getCode());
         BeanUtils.copyProperties(orderDTO, orderMaster);
+        orderMaster.setUpdateTime(new Date());
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
         if (updateResult == null) {
             log.error("【取消订单】更新失败, orderMaster={}", orderMaster);
@@ -185,6 +188,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
         OrderMaster orderMaster = new OrderMaster();
         BeanUtils.copyProperties(orderDTO, orderMaster);
+        orderMaster.setUpdateTime(new Date());
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
         if (updateResult == null) {
             log.error("【完结订单】更新失败, orderMaster={}", orderMaster);
@@ -216,6 +220,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setPayStatus(PayStatusEnum.SUCCESS.getCode());
         OrderMaster orderMaster = new OrderMaster();
         BeanUtils.copyProperties(orderDTO, orderMaster);
+        orderMaster.setUpdateTime(new Date());
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
         if (updateResult == null) {
             log.error("【订单支付完成】更新失败, orderMaster={}", orderMaster);
