@@ -110,8 +110,8 @@
     var websocket = null;
     if ('WebSocket' in window) {
 //        websocket = new WebSocket('ws://happymall.natapp1.cc/sell/webSocket');
-//        websocket = new WebSocket('ws://selladmin.huanliu.org/sell/webSocket');
-        websocket = new WebSocket('ws://47.95.196.241:8089/sell/webSocket');
+        websocket = new WebSocket('ws://selladmin.huanliu.org/sell/webSocket');
+//        websocket = new WebSocket('ws://47.95.196.241:8089/sell/webSocket');
     } else {
         alert('该浏览器不支持websocket!');
     }
