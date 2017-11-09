@@ -15,8 +15,10 @@ server:
 wechat:
   mpAppId: wx93bbf4d13a39e447
   mpAppSecret: db306d6905fa5f27a5cf095df774b446
-  openAppId: wx6ad144e54af67d87
-  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+#  openAppId: wx6ad144e54af67d87
+#  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  openAppId: wx4860fe584b2bd9d0
+  openAppSecret: 49f22babe228f150b9fdfb9dcb45b5be
   mchId: 1490559512
   mchKey: l330673934liuhuan330673934198878
   keyPath: /var/cert/apiclient_cert.p12
